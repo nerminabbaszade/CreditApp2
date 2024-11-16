@@ -1,0 +1,51 @@
+@model ICollection<Payment>	
+
+<style>
+	th{
+		padding: 15px !important;
+	}
+</style>
+<!-- Start Banner Area -->
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Payments</h1>
+					<nav class="d-flex align-items-center">
+						<a asp-action="index" asp-controller="home">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Payments</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+	<!--================Order Details Area =================-->
+	<section class="order_details section_gap">
+		<div class="container">
+			<table class="table table-sm">
+				<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Date</th>
+					<th scope="col">Payment Type</th>
+				</tr>
+				</thead>
+				<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<th scope="row">@item.Id</th>
+						<th>@item.Amount</th>
+						<th>@item.CreatedAt</th>
+						<th>@item.PaymentType</th>
+					</tr>
+				}
+				</tbody>
+			</table>
+			<a class="btn btn-warning text-white w-25" asp-action="index" asp-controller="loan" style="float: right">Go Loans</a>
+		</div>
+	</section>
+	<!--================End Order Details Area =================-->

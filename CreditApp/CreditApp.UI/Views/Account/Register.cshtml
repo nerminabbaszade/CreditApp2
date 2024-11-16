@@ -1,0 +1,77 @@
+@model CreditApp.DAL.DTOs.Customers.CustomerPost
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Login/Register</h1>
+                <nav class="d-flex align-items-center">
+                    <a asp-action="index" asp-controller="home">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a asp-action="login" asp-controller="account">Login/Register</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img h-100">
+                    <img class="img-fluid h-100" src="~/img/login.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Register to enter</h3>
+                    <form class="row login_form" method="post" id="contactForm" novalidate="novalidate">
+                        <div class="text text-danger small" style="color:red; text-align: left" asp-validation-summary="ModelOnly"></div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
+                            <span asp-validation-for="Name" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Surname" placeholder="Surname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Surname'">
+                            <span asp-validation-for="Surname" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            <span asp-validation-for="Email" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                            <span asp-validation-for="Username" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" asp-for="Password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <span asp-validation-for="Password" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+                            <span asp-validation-for="ConfirmPassword" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
+                            <span asp-validation-for="Phone" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+                            <span asp-validation-for="Address" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" asp-for="Occupation" placeholder="Occupation" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Occupation'">
+                            <span asp-validation-for="Occupation" class="text text-danger small"></span>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" value="submit" class="primary-btn">Register</button>
+                            <a asp-action="forgetPassword" asp-controller="account">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

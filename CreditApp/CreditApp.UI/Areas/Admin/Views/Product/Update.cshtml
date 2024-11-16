@@ -1,0 +1,54 @@
+@model Product
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group my-3">
+            <label asp-for="Name">Name:</label>
+            <input type="text" class="form-control" asp-for="Name"/>
+            <span asp-validation-for="Name" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Description">Description:</label>
+            <textarea class="form-control" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Price">Price:</label>
+            <input type="text" class="form-control" asp-for="Price"/>
+            <span asp-validation-for="Price" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Count">Count:</label>
+            <input type="number" class="form-control" asp-for="Count"/>
+            <span asp-validation-for="Count" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Model">Model:</label>
+            <input type="text" class="form-control" asp-for="Model"/>
+            <span asp-validation-for="Model" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Brand">Brand:</label>
+            <input type="text" class="form-control" asp-for="Brand"/>
+            <span asp-validation-for="Brand" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="CategoryId">Category:</label>
+            <select asp-for="CategoryId" class="form-select" aria-label="Default select example">
+                @foreach (Category item in ViewBag.Categories)
+                {
+                    <option value="@item.Id">@item.Parent?.Parent?.Name / @item.Parent?.Name / @item.Name</option>
+                }
+            </select>
+            <span asp-validation-for="CategoryId" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="@Model.File" class="form-label">Image</label>
+            <input type="file" class="form-control" accept="image/*" asp-for="@Model.File">
+            <span asp-validation-for="File" class="text text-danger"></span>
+        </div>
+        @Html.AntiForgeryToken()
+        <button type="submit" style="width:100%; " class="btn btn-outline-dark my-3">Update</button>
+    </form>
+</div>

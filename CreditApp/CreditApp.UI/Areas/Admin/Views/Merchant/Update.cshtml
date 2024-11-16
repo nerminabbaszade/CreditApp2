@@ -1,0 +1,50 @@
+@model CreditApp.DAL.DTOs.Merchants.MerchantUpdate
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group my-3">
+            <label asp-for="Name">Name:</label>
+            <input type="text" class="form-control" asp-for="Name"/>
+            <span asp-validation-for="Name" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Surname">Surname:</label>
+            <input type="text" class="form-control" asp-for="Surname"/>
+            <span asp-validation-for="Surname" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Email">Email:</label>
+            <input type="email" class="form-control" asp-for="Email"/>
+            <span asp-validation-for="Email" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Username">Username:</label>
+            <input type="text" class="form-control" asp-for="Username"/>
+            <span asp-validation-for="Username" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Password">Password:</label>
+            <input type="password" class="form-control" asp-for="Password"/>
+            <span asp-validation-for="Password" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="ConfirmPassword">Confirm Password:</label>
+            <input type="password" class="form-control" asp-for="ConfirmPassword"/>
+            <span asp-validation-for="ConfirmPassword" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="TerminalNo">Terminal No:</label>
+            <input type="text" class="form-control" asp-for="TerminalNo"/>
+            <span asp-validation-for="TerminalNo" class="text text-danger"></span>
+        </div>
+        <div class="form-group my-3">
+            <label asp-for="Description">Description:</label>
+            <input type="text" class="form-control" asp-for="Description"/>
+            <span asp-validation-for="Description" class="text text-danger"></span>
+        </div>
+
+        @Html.AntiForgeryToken()
+        <button type="submit" style="width:100%; " class="btn btn-outline-dark my-3">Update</button>
+    </form>
+</div>

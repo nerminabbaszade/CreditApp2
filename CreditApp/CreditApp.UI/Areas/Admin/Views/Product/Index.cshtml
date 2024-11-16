@@ -1,0 +1,54 @@
+@model IEnumerable<Product>
+<div class="row">
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Count</th>
+            <th scope="col">Merchant Name</th>
+            <th scope="col">Branch Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Update</th>  
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Brand @item.Model @item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Count</td>
+                <td>@item.Branch?.Merchant?.User.UserName</td>
+                <td>@item.Branch?.Name</td>
+                <td><img src="~/images/products/@item.FileName" alt="@item.FileName" style="width:100px;height:100px;"/></td>
+                <td>
+                    <a asp-controller="product" asp-action="update" asp-route-id="@item.Id">
+                        <i class="fas fa-edit text text-primary"></i>
+                    </a>
+                </td>
+                <td>
+                    <a onclick="if(!confirm('Are you sure?')){return false;}"
+                       asp-controller="product" asp-action="delete" asp-route-id="@item.Id"
+                       class=" delete-item"><i class="fas fa-trash text text-danger"></i></a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (User.IsInRole("Employee"))
+    {
+        <div>
+            <a asp-controller="product" asp-action="add" style="display: block; text-decoration: none; color: white; width: 100%; height: 100%" a>
+                <div style="width:100%; " class="btn btn-outline-primary">Add Product</div>
+            </a>
+        </div>
+    }
+</div>
+<style>
+    td,th{
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>

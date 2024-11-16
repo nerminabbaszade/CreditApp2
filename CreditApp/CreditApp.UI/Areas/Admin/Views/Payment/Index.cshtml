@@ -1,0 +1,24 @@
+@model IEnumerable<Payment>
+<div class="row">
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">Payment Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.Id</th>
+            <th>@item.Amount</th>
+            <th>@item.CreatedAt</th>
+            <th>@item.PaymentType</th>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>

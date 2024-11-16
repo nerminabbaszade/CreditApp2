@@ -1,0 +1,65 @@
+@model CreditApp.DAL.DTOs.Account.Login
+@{
+  Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orange Store Admin</title>
+  <link rel="shortcut icon" type="image/png" href="~/admin/images/logos/adminLogo.png" />
+  <link rel="stylesheet" href="~/admin/css/styles.min.css" /> 
+  <style>
+    .radial-gradient:before{
+      background: rgb(240,239,178);
+      background: linear-gradient(90deg, rgba(240,239,178,1) 7%, rgba(237,175,0,1) 53%, rgba(184,147,0,1) 82%);
+      opacity: 0.6;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <a href="#" class="text-nowrap logo-img text-center d-flex justify-content-center align-items-center py-4 w-100">
+                  <img src="~/admin/images/logos/adminLogo.png" style="height: 40px" alt="">
+                  <span style="color: black;font-size: 20px;font-weight: bold;margin-left: 10px">Admin Panel</span>
+                </a>
+                <form method="post">
+                  <div class="text text-danger" style="color:red;" asp-validation-summary="ModelOnly"></div>
+                  <div class="mb-3">
+                    <label asp-for="Username" class="form-label">Username</label>
+                    <input type="text" class="form-control" asp-for="Username">
+                    <span asp-validation-for="Username" class="text text-danger small"></span>
+                  </div>
+                  <div class="mb-4">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input type="password" class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password" class="text text-danger small"></span>
+                  </div>
+                  <button type="submit" class="btn btn-warning w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="~/admin/libs/jquery/dist/jquery.min.js"></script>
+  <script src="~/admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

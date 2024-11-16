@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditApp.UI", "CreditApp.UI\CreditApp.UI.csproj", "{B7C1A558-9392-4895-8469-FAEDE050ECDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditApp.DAL", "CreditApp.DAL\CreditApp.DAL.csproj", "{D98574D0-F6FD-40C0-8D94-94B65F144FE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditApp.BLL", "CreditApp.BLL\CreditApp.BLL.csproj", "{38B48855-9A61-4668-8AD2-09E76D227ED5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7C1A558-9392-4895-8469-FAEDE050ECDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C1A558-9392-4895-8469-FAEDE050ECDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C1A558-9392-4895-8469-FAEDE050ECDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C1A558-9392-4895-8469-FAEDE050ECDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D98574D0-F6FD-40C0-8D94-94B65F144FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98574D0-F6FD-40C0-8D94-94B65F144FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98574D0-F6FD-40C0-8D94-94B65F144FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98574D0-F6FD-40C0-8D94-94B65F144FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B48855-9A61-4668-8AD2-09E76D227ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B48855-9A61-4668-8AD2-09E76D227ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B48855-9A61-4668-8AD2-09E76D227ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B48855-9A61-4668-8AD2-09E76D227ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,54 @@
+@model IEnumerable<Loan>
+<div class="row">
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Active</th>
+            <th scope="col">Detail</th>
+            <th scope="col">Payments</th>
+            @if (User.IsInRole("Employee"))
+            {
+                <th scope="col">Confirm</th>
+            }
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <th>@item.Customer?.User.UserName</th>
+                <th>@(item.Employee?.User.UserName == null ? "Not Defined" : item.Employee?.User.UserName)</th>
+                <th>@item.IsActive</th>
+                <td>
+                    <a asp-controller="loan" asp-action="detail" asp-route-id="@item.Id">
+                        <i class="fas fa-info text text-dark"></i>
+                    </a>
+                </td>
+                <td>
+                    <a asp-controller="payment" asp-action="index" asp-route-loanId="@item.Id">
+                        <i class="fas fa-file-invoice-dollar text text-primary"></i>
+                    </a>
+                </td>
+                @if (User.IsInRole("Employee"))
+                {
+                    <td>
+
+                        @if (!item.IsApproved)
+                        {
+                            <a asp-controller="loan" asp-action="confirm" style="margin-left: 5px" asp-route-id="@item.Id">
+                                <i class="fas fa-check text text-primary"></i>
+                            </a>
+                        }
+                    </td>
+                }
+
+
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

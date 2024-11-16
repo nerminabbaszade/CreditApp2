@@ -1,0 +1,128 @@
+@model Loan  
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a asp-action="index" asp-controller="home">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if (Model?.LoanItems.Count > 0)
+                    {
+                        @foreach (var loanItem in Model?.LoanItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img style="width: 150px;height: 100px" src="~/images/products/@loanItem.Product.FileName" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <p>@loanItem.Product.Brand @loanItem.Product.Model @loanItem.Product.Name</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>$@loanItem.Product.Price</h5>
+                                </td>
+                                <td>
+                                    <div class="product_count">
+                                        <form action="@Url.Action("ChangeCount", "loan")" method="post" id="@(loanItem.Id+"form")">
+                                            <input type="number" name="count" id="@loanItem.Id" value="@loanItem.Count" title="Quantity:" class="input-text qty">
+                                            <input hidden name="loanItemId" value="@loanItem.Id" />
+                                            <button onclick="var result = document.getElementById('@loanItem.Id'); var sst = parseInt(result.value); if (!isNaN(sst)) { result.value = sst + 1; document.getElementById('@(loanItem.Id+"form")').submit(); } return false;"
+                                                    class="increase items-count" type="button">
+                                                <i class="lnr lnr-chevron-up"></i>
+                                            </button>
+                                            <button onclick="var result = document.getElementById('@loanItem.Id'); var sst = parseInt(result.value); if (!isNaN(sst) && sst > 1) { result.value = sst - 1; document.getElementById('@(loanItem.Id+"form")').submit(); } return false;"
+                                                    class="reduced items-count" type="button">
+                                                <i class="lnr lnr-chevron-down"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>$@loanItem.Price</h5>
+                                </td>
+                                <td>
+                                    <a onclick="if(!confirm('Are you sure?')){return false;}"
+                                       asp-controller="loan" asp-action="delete" asp-route-loanItemId="@loanItem.Id"
+                                       class=" delete-item"><i class="ti-eraser text text-danger"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <h5>Subtotal</h5>
+                        </td>
+                        <td>
+                            <h5>$@Model?.TotalPrice</h5>
+                        </td>
+                    </tr>
+                    <tr class="out_button_area">
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        @if (Model is not null)
+                        {
+                            <form method="post">
+                                <input hidden asp-for="@Model.Id"/>
+                                <td>
+                                    <div class="checkout_btn_inner d-flex align-items-center">
+                                        <button style="width: 100%; text-align: center;border: none" class="primary-btn" type="submit">Confirm your loan</button>
+                                    </div>
+                                </td>
+                                <div class="text text-danger" asp-validation-summary="All"></div>
+                            </form>
+                        }
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

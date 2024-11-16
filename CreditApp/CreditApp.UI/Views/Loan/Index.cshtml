@@ -1,0 +1,56 @@
+@model ICollection<Loan>
+<!-- Start Banner Area -->
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Loans</h1>
+					<nav class="d-flex align-items-center">
+						<a asp-action="index" asp-controller="home">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Loans</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+
+	<!--================Order Details Area =================-->
+	<section class="order_details section_gap">
+		<div class="container">
+			<div class="row order_d_inner">
+				@foreach (Loan loan in Model)
+				{
+					<div class="col-lg-4">
+						<div class="details_item">
+							<h4>Loan Info</h4>
+							<ul class="list">
+								<li><a href="#"><span>Loan number</span> : @loan.Id</a></li>
+								<li><a href="#"><span>Status</span> : @(loan.IsActive ? loan.IsApproved?"Active" :"Wait For Approve":"Finished") </a></li>
+								<li><a href="#"><span>Date</span> : @loan.CreatedAt.ToShortDateString()</a></li>
+								<li><a href="#"><span>Total amount</span> : @loan.TotalPrice$</a></li>
+								<li><a href="#"><span>Current amount</span> : @loan.LoanDetail.CurrentAmount$</a></li>
+								<li><a href="#"><span>Terms</span> : @loan.Terms%</a></li>
+								<li><a href="#"><span>Monthly amount</span> : @loan.MonthlyPrice$</a></li>
+								@if (loan.IsApproved)
+								{
+									@if (loan.IsActive)
+									{
+										<li>
+											<a asp-action="pay" asp-controller="payment" asp-route-loanId="@loan.Id"><span>Payment</span> :
+												<div class="btn btn-warning text-white">Pay</div></a></li>
+									}
+
+									<li>
+										<a asp-action="list" asp-controller="payment" asp-route-loanId="@loan.Id"><span>Payment List</span> :
+											<div class="btn btn-secondary">Show List</div></a></li>
+								}
+							</ul>
+						</div>
+					</div>
+				}
+
+			</div>
+		</div>
+	</section>
+	<!--================End Order Details Area =================-->
